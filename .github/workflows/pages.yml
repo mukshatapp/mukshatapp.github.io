@@ -29,6 +29,9 @@ jobs:
       - name: Extract website
         run: unzip -q Mikshat-GitHub-Pages.zip -d _site
 
+      - name: Add public policy pages
+        run: cp privacy.html terms.html _site/
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
