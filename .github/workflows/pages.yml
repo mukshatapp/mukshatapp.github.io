@@ -30,7 +30,9 @@ jobs:
         run: unzip -q Mikshat-GitHub-Pages.zip -d _site
 
       - name: Apply dedicated iOS link handler
-        run: cp overrides/assets/share.js _site/assets/share.js
+        run: |
+          cp overrides/assets/share.js _site/assets/share.js
+          sed -E -i 's@/assets/share\.js(\?[^" ]*)?@/assets/share.js?v=ios-466-dedicated-1@g' _site/map/index.html
 
       - name: Add public policy pages
         run: cp privacy.html terms.html _site/
