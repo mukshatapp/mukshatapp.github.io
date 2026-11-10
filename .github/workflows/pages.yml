@@ -29,6 +29,9 @@ jobs:
       - name: Extract website
         run: unzip -q Mikshat-GitHub-Pages.zip -d _site
 
+      - name: Apply dedicated iOS link handler
+        run: cp overrides/assets/share.js _site/assets/share.js
+
       - name: Add public policy pages
         run: cp privacy.html terms.html _site/
 
@@ -38,3 +41,4 @@ jobs:
 
       - id: deployment
         uses: actions/deploy-pages@v4
+
